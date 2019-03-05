@@ -8,7 +8,7 @@ services:
       - type: bind
         source: ./pem
         target: /app/pem
-    command: http-server dist -S -K pem/key.pem
+    command: http-server dist -S -K pem/key.pem -C pem/cert.pem
   backend:
     image: xarcher/class-back:latest
     ports:
