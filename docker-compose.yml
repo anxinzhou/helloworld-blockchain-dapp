@@ -11,6 +11,10 @@ services:
     command: http-server dist -S -K pem/key.pem -C pem/cert.pem
   backend:
     image: xarcher/class-back:latest
+    volumes:
+      - type: bind
+        source: ./pem
+        target: /app/pem
     ports:
       - "4000:4000"
     command: node main.js
