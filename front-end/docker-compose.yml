@@ -3,7 +3,7 @@ services:
   frontend:
     build:
       context: .
-    image: xarcher/class-front:lastest
+    image: xarcher/class-front:latest
     ports:
-      - "80:80"
+      - "80:8080"
     command: http-server dist

@@ -3,8 +3,12 @@ services:
   frontend:
     image: xarcher/class-front:latest
     ports:
-      - "80:80"
-    command: http-server dist
+      - "80:8080"
+    volumes:
+      - type: bind
+        source: ./pem
+        target: /app/pem
+    command: http-server dist -S -K pem/key.pem
   backend:
     image: xarcher/class-back:latest
     ports:

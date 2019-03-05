@@ -9,7 +9,7 @@ const config = require('./config.json');
 
 const web3 = new Web3(config.httpPort);
 const contract = new web3.eth.Contract(config.abi, config.address);
-const account = web3.eth.accounts.privateKeyToAccount('65CF458E20E12991BA6AEBC210B8293AD5B3495F585CECC6D22DE77933DE2B0F');
+const account = web3.eth.accounts.privateKeyToAccount('0x65CF458E20E12991BA6AEBC210B8293AD5B3495F585CECC6D22DE77933DE2B0F');
 console.log(account);
 router.prefix('/api/v1');
 router.get('/tokens/:user', getToken)
@@ -25,7 +25,8 @@ app.listen(4000, '0.0.0.0');
 async function sendTransaction(funcName, ...args) {
     let option = {
         to: config.address,
-        gasLimit: '300000',
+        gasLimit: '3000000',
+		gasPrice: '2000000000',
 		data: contract.methods[funcName](...args).encodeABI(),
     };
 
@@ -35,6 +36,7 @@ async function sendTransaction(funcName, ...args) {
     // console.log(serializedTx);
 	try {
         let signedTx = await account.signTransaction(option);
+        console.log(signedTx.rawTransaction);
         let receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
         receipt.status === '0x0' ?Promise.reject(new Error('transaction revert')) : Promise.resolve();
 	} catch(err){

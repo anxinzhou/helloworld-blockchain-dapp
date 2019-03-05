@@ -1,6 +1,6 @@
 {
-  "httpPort":"https://kovan.infura.io/v3/38c50b5e76aa4de9866c79935349bee8",
-  "address": "0x7ddb5fad5cdc4da6b42697e216dd880ba31c4ced",
+  "httpPort":"https://kovan.infura.io/v3/3fbb4155c99a428fb8bd053b7fb85128",
+  "address": "0xd9763cc03ff1dd488a2714c808d1055f8879d3ab",
   "abi": [{
     "constant": true,
     "inputs": [],
