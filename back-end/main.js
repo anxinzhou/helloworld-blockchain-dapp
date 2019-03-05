@@ -10,8 +10,8 @@ const fs = require('fs');
 const https = require('https');
 
 const options = {
-	key: fs.readFileSync('../pem/key.pem'),
-	cert: fs.readFileSync('../pem/cert.pem')
+	key: fs.readFileSync('pem/key.pem'),
+	cert: fs.readFileSync('pem/cert.pem')
 };
 const web3 = new Web3(config.httpPort);
 const contract = new web3.eth.Contract(config.abi, config.address);
