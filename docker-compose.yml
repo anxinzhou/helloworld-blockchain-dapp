@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+  frontend:
+    image: xarcher/class-front:latest
+    ports:
+      - "80:80"
+    command: http-server dist
+  backend:
+    image: xarcher/class-back:latest
+    ports:
+      - "4000:4000"
+    command: node main.js
