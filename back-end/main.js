@@ -7,12 +7,12 @@ const bodyParser = require('koa-bodyparser');
 const Web3 = require('web3');
 const config = require('./config.json');
 const fs = require('fs');
-const https = require('https');
+const http = require('http');
 
-const options = {
-	key: fs.readFileSync('pem/key.pem'),
-	cert: fs.readFileSync('pem/cert.pem')
-};
+// const options = {
+// 	key: fs.readFileSync('pem/key.pem'),
+// 	cert: fs.readFileSync('pem/cert.pem')
+// };
 const web3 = new Web3(config.httpPort);
 const contract = new web3.eth.Contract(config.abi, config.address);
 const account = web3.eth.accounts.privateKeyToAccount('0x65CF458E20E12991BA6AEBC210B8293AD5B3495F585CECC6D22DE77933DE2B0F');
@@ -25,7 +25,7 @@ console.log("app start");
 app.use(cors());
 app.use(bodyParser());
 app.use(router.routes());
-https.createServer(options,app.callback()).listen(4000);
+http.createServer(app.callback()).listen(4000);
 
 
 async function sendTransaction(funcName, ...args) {

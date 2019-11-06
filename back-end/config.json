@@ -1,5 +1,5 @@
 {
-  "httpPort":"https://kovan.infura.io/v3/3fbb4155c99a428fb8bd053b7fb85128",
+  "httpPort":"https://kovan.infura.io/v3/ab1d2a604f814c688b4cbfbc9550fb1b",
   "address": "0xd9763cc03ff1dd488a2714c808d1055f8879d3ab",
   "abi": [{
     "constant": true,
