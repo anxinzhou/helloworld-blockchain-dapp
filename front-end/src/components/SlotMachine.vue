@@ -208,7 +208,7 @@
                 this.$store.state.notifyInfo('Reward on the way');
                 this.$ajax.put(this.$store.state.config.backendURL + '/tokens/' + this.account, {amount:REWARD})
                     .then((res) => {
-                        this.$store.state.notifySuccess('Reward', REWARD, 'token');
+                        this.$store.state.notifySuccess('get '+REWARD+ ' tokens as reward');
                         this.tokens += REWARD;
                     }).catch(console.log)
             },
