@@ -1,4 +1,3 @@
-# class-demo
+# Hello-world blockchain dapp
 
-
-simple erc20 token application example
+A client-server application based on blockchain and erc20 token.
